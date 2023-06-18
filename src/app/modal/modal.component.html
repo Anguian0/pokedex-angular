@@ -1,0 +1,66 @@
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen" *ngIf="pokemon">
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 text-white"
+        [ngStyle]="{ 'background-color': pokemonColor, 'opacity': '0.7' }">
+
+        <div *ngIf="pokemonColor == 'white'" class="text-2xl text-black font-medium drop-shadow">{{
+            pokemon.name | titlecase}}</div>
+        <div *ngIf="pokemonColor != 'white'" class="text-2xl font-medium drop-shadow">{{ pokemon.name |
+            titlecase}}</div>
+
+        <button mat-icon-button (click)="close()" [tabIndex]="-1">
+            <svg *ngIf="pokemonColor == 'white'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-black">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <svg *ngIf="pokemonColor != 'white'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div>
+            <h3 class="font-medium text-lg">Descripción:</h3>
+            <p class="">{{ pokemonDescription }}</p>
+            <br>
+            <div class="flex justify-between">
+                <h3 class="font-medium text-lg">Experiencia:</h3>
+                <p>{{ pokemon.base_experience }}</p>
+            </div>
+            <div class="flex justify-between">
+                <h3 class="font-medium text-lg">Altura:</h3>
+                <h2>{{ pokemon.height }}</h2>
+            </div>
+            <div class="flex justify-between">
+                <h3 class="font-medium text-lg">Peso:</h3>
+                <h2>{{ pokemon.weight }}</h2>
+            </div>
+            <br>
+            <div class="flex justify-around">
+                <div>
+                    <h3 class="font-medium text-lg">Tipo:</h3>
+                    <div *ngFor="let type of pokemon.types">
+                        {{ type.type.name | titlecase }}
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg">Abilidades:</h3>
+                    <div *ngFor="let ability of pokemon.abilities">
+                        {{ ability.ability.name | titlecase}}
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="relative flex justify-center">
+            <div class="absolute h-64 w-64 p-1 rounded-full"
+                [ngStyle]="{ 'background-color': pokemonColor, 'opacity': '0.7' }"></div>
+            <img class="h-72 drop-shadow-2xl" src="{{pokemon.sprites.other.dream_world.front_default}}" alt="">
+            <!-- <img class="h-72 drop-shadow-2xl" src="{{pokemon.sprites.other['official-artwork']['front_default']}}" alt=""> -->
+            <h3 class="absolute top-0 right-4 text-gray-300 font-bold text-5xl md:text-6xl"># {{pokemon.id}}</h3>
+        </div>
+    </div>
+</div>

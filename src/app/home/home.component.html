@@ -1,0 +1,70 @@
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 bg-gray-100 h-screen overflow-y-scroll" #cards
+    (scroll)="onScroll($event)">
+    <!-- <app-header class="col-span-1 md:col-span-4"></app-header> -->
+
+    <app-card *ngFor="let pokemon of pokemonList" [data]="pokemon" (clickCard)="clickedCard($event)"
+        class="cursor-pointer">
+    </app-card>
+
+
+    <div *ngIf="loading" class="shadow bg-white rounded-2xl p-4 max-w-sm w-full mx-auto relative h-80">
+        <div class="animate-pulse flex space-x-4">
+            <div class="flex-1 space-y-6 py-1">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-2"></div>
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-1"></div>
+                </div>
+            </div>
+            <div class="absolute inset-0 top-10 flex items-center justify-center">
+                <div class="h-64 w-64 bg-slate-700 rounded-full p-1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="shadow bg-white rounded-2xl p-4 max-w-sm w-full mx-auto relative h-80">
+        <div class="animate-pulse flex space-x-4">
+            <div class="flex-1 space-y-6 py-1">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-2"></div>
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-1"></div>
+                </div>
+            </div>
+            <div class="absolute inset-0 top-10 flex items-center justify-center">
+                <div class="h-64 w-64 bg-slate-700 rounded-full p-1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="shadow bg-white rounded-2xl p-4 max-w-sm w-full mx-auto relative h-80">
+        <div class="animate-pulse flex space-x-4">
+            <div class="flex-1 space-y-6 py-1">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-2"></div>
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-1"></div>
+                </div>
+            </div>
+            <div class="absolute inset-0 top-10 flex items-center justify-center">
+                <div class="h-64 w-64 bg-slate-700 rounded-full p-1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="shadow bg-white rounded-2xl p-4 max-w-sm w-full mx-auto relative h-80">
+        <div class="animate-pulse flex space-x-4">
+            <div class="flex-1 space-y-6 py-1">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-2"></div>
+                    <div class="h-5 bg-slate-700 rounded-2xl col-span-1"></div>
+                </div>
+            </div>
+            <div class="absolute inset-0 top-10 flex items-center justify-center">
+                <div class="h-64 w-64 bg-slate-700 rounded-full p-1">
+                    <!-- Contenido del div absoluto -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="data" [ngClass]="{selected: selected}">
+    <div (click)="clickCard.emit(id)" class="relative transition-shadow duration-300 ease-in-out hover:shadow-2xl shadow bg-white p-4 rounded-2xl">
+        <h2 class="text-xl">{{data.name | titlecase}}</h2>
+        <h3 class="absolute top-4 right-4 text-gray-300 font-bold text-5xl md:text-6xl"># {{id}}</h3>
+        <!-- <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id}}.png' alt=""> -->
+        <img class="relative drop-shadow-2xl" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{id}}.png' alt="">
+        <!-- <img class="h-52 relative drop-shadow-2xl" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{id}}.svg' alt=""> -->
+    </div>
+</div>
