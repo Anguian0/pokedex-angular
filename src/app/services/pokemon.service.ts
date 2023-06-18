@@ -27,9 +27,10 @@ export class PokemonService {
   getDescriptionAndColor = async(idOrName: any) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${idOrName}`);
     const pokemonSpecies = await response.json();
+    const habitat = pokemonSpecies.habitat.name;
     const color = pokemonSpecies.color.name;
     const description = pokemonSpecies.flavor_text_entries.find((entry: { language: { name: string; }; }) => entry.language.name === 'es')?.flavor_text as string;
-    return { color, description };
+    return { habitat, color, description };
   }
 
   // async getPokemonColor(idOrName: string): Promise<any> {

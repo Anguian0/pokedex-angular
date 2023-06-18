@@ -20,6 +20,7 @@ export class ModalComponent implements OnInit {
   @Input() pokemon: Pokemon | undefined;
   pokemonColor: any;
   pokemonDescription: any;
+  pokemonHabitat: any;
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
@@ -58,6 +59,7 @@ export class ModalComponent implements OnInit {
       .then((result) => {
         this.pokemonDescription = result.description;
         this.pokemonColor = result.color;
+        this.pokemonHabitat = result.habitat;
         // console.log(result.color, result.description);
       })
       .catch((error) => {

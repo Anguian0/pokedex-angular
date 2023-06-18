@@ -52,15 +52,20 @@
                         {{ ability.ability.name | titlecase}}
                     </div>
                 </div>
+                <div>
+                    <h3 class="font-medium text-lg">Hábitat:</h3>
+                    <div>{{pokemonHabitat | titlecase}}</div>
+                </div>
             </div>
             <br>
         </div>
         <div class="relative flex justify-center">
-            <div class="absolute h-64 w-64 p-1 rounded-full"
+            <div class="absolute h-64 w-64 p-1 rounded-full z-20"
                 [ngStyle]="{ 'background-color': pokemonColor, 'opacity': '0.7' }"></div>
-            <img class="h-72 drop-shadow-2xl" src="{{pokemon.sprites.other.dream_world.front_default}}" alt="">
+            <img class="h-72 drop-shadow-2xl relative z-40" src="{{pokemon.sprites.other.dream_world.front_default}}" alt="">
             <!-- <img class="h-72 drop-shadow-2xl" src="{{pokemon.sprites.other['official-artwork']['front_default']}}" alt=""> -->
-            <h3 class="absolute top-0 right-4 text-gray-300 font-bold text-5xl md:text-6xl"># {{pokemon.id}}</h3>
+            <h3 *ngIf="pokemon.name == 'metapod'" class="absolute top-0 right-4 text-gray-300 font-bold text-5xl md:text-6xl"># {{pokemon.id}}</h3>
+            <h3 *ngIf="pokemon.name != 'metapod'" class="absolute bottom-0 right-4 text-gray-300 font-bold text-5xl md:text-6xl"># {{pokemon.id}}</h3>
         </div>
     </div>
 </div>
